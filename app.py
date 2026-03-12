@@ -16,6 +16,9 @@ def get_marine_weather(lat, lon):
 
 # 3. Main Chat Logic
 if groq_key:
+
+    
+    
     client = Groq(api_key=groq_key)
     
     if "messages" not in st.session_state:
@@ -39,6 +42,7 @@ if groq_key:
         # Get AI Response
         response = client.chat.completions.create(
             model="llama3-70b-8192",
+            stream=False,
             messages=[{"role": "system", "content": "You are a Maritime Digital Twin expert. Use the provided live data to answer."}] + 
                      st.session_state.messages + 
                      [{"role": "system", "content": context}]
