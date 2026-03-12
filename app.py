@@ -41,7 +41,7 @@ if groq_key:
 
         # Get AI Response
         response = client.chat.completions.create(
-            model="llama3-70b-8192",
+            model="openai/gpt-oss-20b",
             stream=False,
             messages=[{"role": "system", "content": "You are a Maritime Digital Twin expert. Use the provided live data to answer."}] + 
                      st.session_state.messages + 
